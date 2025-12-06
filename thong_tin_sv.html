@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng thông tin đào tạo - Đại học Văn Lang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --vlu-blue: #003466;
+            --vlu-red: #C0202F; /* Giữ lại đề phòng dùng chỗ khác */
+            --text-color: #333;
+            --border-color: #ddd;
+            --bg-gray: #f2f2f2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        /* --- HEADER MỚI --- */
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block; /* Loại bỏ khoảng trắng thừa dưới ảnh */
+        }
+
+        .navbar {
+            background-color: var(--vlu-blue);
+            padding: 10px 15px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            color: white;
+            font-size: 20px;
+            border: 1px solid #5a7ea6;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* --- SECTION HEADERS --- */
+        .section-header {
+            background-color: var(--vlu-blue);
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid white;
+        }
+        
+        .section-header i {
+            margin-right: 8px;
+        }
+
+        /* --- MENU LIST (ACCORDION STYLE) --- */
+        .menu-group {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .menu-title {
+            padding: 12px 15px;
+            background-color: #fff;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .menu-title i {
+            color: var(--vlu-blue);
+            margin-right: 5px;
+            font-size: 10px;
+        }
+
+        .sub-menu {
+            background-color: #e9e9e9;
+            padding: 5px 0 5px 25px;
+            list-style: none;
+        }
+
+        .sub-menu li {
+            padding: 8px 0;
+            position: relative;
+            border-left: 1px dotted #999;
+            padding-left: 15px;
+        }
+
+        .sub-menu li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 10px;
+            border-top: 1px dotted #999;
+        }
+
+        .sub-menu a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+
+        .highlight-count {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* --- STUDENT INFO --- */
+        .student-avatar {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .student-avatar img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            background-color: #eee;
+        }
+
+        .info-category {
+            color: var(--vlu-red);
+            font-weight: bold;
+            padding: 10px 15px;
+            font-size: 15px;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 10px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .info-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .label {
+            color: #666;
+            width: 140px;
+        }
+
+        .value {
+            color: #000;
+            font-weight: 500;
+        }
+        
+        .btn-update {
+            border: 1px solid #6fa8dc;
+            color: #6fa8dc;
+            padding: 5px 10px;
+            background: none;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Utility */
+        .bold { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="banner-yersin.jpg" alt="Banner Đại học Văn Lang" class="banner-img">
+        
+        <div class="navbar">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-header">
+            <i class="fas fa-th"></i> Chức năng
+        </div>
+        
+        <div class="menu-group">
+            <div class="menu-title"><i class="fas fa-chevron-right"></i> Trang cá nhân</div>
+            <ul class="sub-menu">
+                <li><a href="#">Thông tin cá nhân</a></li>
+                <li><a href="#">Thông báo <span class="highlight-count">(1)</span></a></li>
+            </ul>
+        </div>
+
+        <div class="menu-group">
+            <div class="menu-title"><i class="fas fa-chevron-right"></i> Tra cứu thông tin</div>
+            <ul class="sub-menu">
+                <li><a href="#">Chương trình đào tạo</a></li>
+                <li><a href="#">Lịch học</a></li>
+                <li><a href="#">Lịch thi</a></li>
+                <li><a href="#">Quyết định sinh viên</a></li>
+                <li><a href="#">Kết quả rèn luyện</a></li>
+                <li><a href="#">Kết quả học tập</a></li>
+                <li><a href="#">Tài chính sinh viên</a></li>
+                <li><a href="#">Xem chi tiết hóa đơn</a></li>
+                <li><a href="#">Tổng hợp học phí</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            Thông tin sinh viên
+        </div>
+
+        <div class="student-avatar">
+            <img src="https://via.placeholder.com/120x150.png?text=Avatar" alt="Ảnh thẻ">
+        </div>
+
+        <div class="info-category">Thông tin khóa học</div>
+        <table class="info-table">
+            <tr>
+                <td class="label">Niên khóa:</td>
+                <td class="value bold">2023 - 2027</td>
+            </tr>
+            <tr>
+                <td class="label">Khóa học:</td>
+                <td class="value bold">K29</td>
+            </tr>
+            <tr>
+                <td class="label">Chức vụ:</td>
+                <td class="value"></td>
+            </tr>
+            <tr>
+                <td class="label">Đối tượng:</td>
+                <td class="value"></td>
+            </tr>
+            <tr>
+                <td class="label">Đoàn:</td>
+                <td class="value bold">Đoàn viên</td>
+            </tr>
+        </table>
+
+        <div class="info-category">Thông tin liên lạc</div>
+        <table class="info-table">
+            <tr>
+                <td class="label">Dân tộc:</td>
+                <td class="value bold">Kinh</td>
+            </tr>
+            <tr>
+                <td class="label">Tôn giáo:</td>
+                <td class="value bold">Không</td>
+            </tr>
+            <tr>
+                <td class="label">Quốc gia:</td>
+                <td class="value bold">Việt Nam</td>
+            </tr>
+            <tr>
+                <td class="label">Tỉnh thành:</td>
+                <td class="value bold">Tỉnh Vĩnh Long</td>
+            </tr>
+            <tr>
+                <td class="label">Di động:</td>
+                <td class="value bold">0945555451</td>
+            </tr>
+            <tr>
+                <td class="label">Mã SV:</td>
+                <td class="value bold">2372802012047</td>
+            </tr>
+            <tr>
+                <td class="label">Ngày vào đoàn:</td>
+                <td class="value bold">15/03/2021</td>
+            </tr>
+            <tr>
+                <td class="label">Họ tên:</td>
+                <td class="value bold">Trần Đỗ Tố Quyên</td>
+            </tr>
+            <tr>
+                <td class="label">Đảng:</td>
+                <td class="value">
+                    <button class="btn-update">[Cập nhật thông tin cá nhân]</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Giới tính:</td>
+                <td class="value bold">Nam</td>
+            </tr>
+            <tr>
+                <td class="label">Ngày sinh:</td>
+                <td class="value bold">19/10/2005</td>
+            </tr>
+            <tr>
+                <td class="label">Loại hình đào tạo:</td>
+                <td class="value bold">Đại Học CQ Tín Chỉ</td>
+            </tr>
+            <tr>
+                <td class="label">Nơi sinh:</td>
+                <td class="value bold">Tỉnh Bến Tre</td>
+            </tr>
+            <tr>
+                <td class="label">Cố vấn học tập:</td>
+                <td class="value bold">Nguyễn Thế Quang</td>
+            </tr>
+            <tr>
+                <td class="label">CMND/CCCD:</td>
+                <td class="value bold">084207009876</td>
+            </tr>
+            <tr>
+                <td class="label">Liên hệ cố vấn học tập:</td>
+                <td class="value bold">0989990017</td>
+            </tr>
+            <tr>
+                <td class="label">Tình trạng học:</td>
+                <td class="value bold">Còn học</td>
+            </tr>
+            <tr>
+                <td class="label">Lớp sinh viên:</td>
+                <td class="value bold">Khóa 6 Công nghệ thông tin-71K29CNTT05</td>
+            </tr>
+            <tr>
+                <td class="label">Quốc tịch:</td>
+                <td class="value bold">Việt Nam</td>
+            </tr>
+            <tr>
+                <td class="label">Email trường:</td>
+                <td class="value bold">quyen.2372802012045@vanlanguni.vn</td>
+            </tr>
+            <tr>
+                <td class="label">Email cá nhân:</td>
+                <td class="value bold"></td>
+            </tr>
+            <tr>
+                <td class="label">Địa chỉ SV:</td>
+                <td class="value bold"> 360/2d Khu phố 9, Phường An Hội, Tỉnh Vĩnh Long</td>
+            </tr>
+        </table>
+    </section>
+
+</body>
+</html>
